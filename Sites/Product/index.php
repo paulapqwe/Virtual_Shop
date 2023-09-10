@@ -41,8 +41,9 @@
             $imagenes = mysqli_query($conn, $find);
             
     ?>
-
     <div id="contenido">
+        <div class="lefthome" onclick="window.location.href='../ProductList/Index.php'"> <i
+            class="fa-solid fa-arrow-left"></i> Volver al inicio</div>
         <div class="containerProduct">
             <div class="contentProduct">
                 <div class="nameProductBig">
@@ -53,13 +54,15 @@
 
                     <h3>Descripción</h3>
                     <p><?php echo $data["Descripcion"] ?></p>
+                    <p class="available">Cantidad disponible <?php echo $data["Cantidad"] ?></p>
                 </div>
 
                 <div class="slider">
                     <?php
                 while ($fila = mysqli_fetch_assoc($imagenes)) {
                   ?>
-                    <div class="imageSlider" style="background-image: url('<?php echo $fila["Directorio"] ?>');"></div>
+                    <div class="imageSlider" style="background-image: url('<?php echo $fila["Directorio"] ?>');">
+                    </div>
                     <?php
                 }
                 ?>
@@ -68,7 +71,8 @@
                 </div>
 
                 <div class="contentAddCarBig"><button
-                        onclick="window.location.href='../CarPay/Index.php?id=<?php echo $data['Id'] ?>'" class="addCar">
+                        onclick="window.location.href='../CarPay/Index.php?id=<?php echo $data['Id'] ?>'"
+                        class="addCar">
                         Añadir al carrito <i class="fa-solid fa-cart-plus"></i></button>
                 </div>
             </div>
@@ -116,8 +120,18 @@ const image = document.getElementsByClassName("");
 
 $(".imageSlider")
     .hover(function() {
-        var newImge = $(this)[0].style.backgroundImage;
-        $(".imageProductBig")[0].style.backgroundImage = newImge;
 
-    });
+            let element = $(this);
+            let newImge = element[0].style.backgroundImage;
+            $(".imageProductBig")[0].style.backgroundImage = newImge;
+            // element.style.tranform = ": ";
+            $(this).css("transform", "translateY(-5px)");
+            $(this).css("transition", "transform .6s,opacity .6s");
+
+        }, function() {
+            $(this).css("transform", "translateY(0)");
+            $(this).css("transition", "");
+        }
+
+    );
 </script>

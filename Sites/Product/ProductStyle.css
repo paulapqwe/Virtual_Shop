@@ -1,6 +1,7 @@
 
 .containerProduct {
   margin: 100px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +12,7 @@
   display: grid;
   grid-template-columns: 700px 400px;
   border: 1px solid gainsboro;
+  border-radius: 5px;
 }
 
 .imageProductBig {
@@ -43,16 +45,20 @@
   display: grid;
   grid-template-columns: repeat( 5, 110px) ;
   gap: 8px;
+  margin-left: 20px;
 }
 
 .imageSlider {
   height: 100px;
-  background-size: 110%;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   margin: 5px;
   border: 1px solid gainsboro;
+  overflow: hidden;
+  border-radius: 10px;
 }
+
 
 .contentAddCarBig{
   grid-row: 3;
@@ -61,11 +67,24 @@
   justify-content: center;
 }
 
+.available{
+  margin-top: 50px;
+  color: #7c3479;
+}
+
+.lefthome{
+  color: #7c3479;
+  cursor: pointer;
+  margin-left: 30px;
+  font-size: 18px;
+}
+
+
+
 /* .slider {
   display: flex;
   transition: transform 0.3s ease-in-out;
 } */
-
 
 
 
